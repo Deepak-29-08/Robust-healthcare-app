@@ -10,6 +10,7 @@ import {
   DATABASE_ID,
   databases,
   messaging,
+  PATIENT_COLLECTION_ID,
 } from "../appwrite.config";
 import { formatDateTime, parseStringify } from "../utils";
 

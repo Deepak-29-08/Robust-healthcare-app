@@ -32,6 +32,7 @@ const RegisterForm = ({ user }: { user: User }) => {
 
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
+    
     defaultValues: {
       ...PatientFormDefaultValues,
       name: user.name,
@@ -84,7 +85,8 @@ const RegisterForm = ({ user }: { user: User }) => {
           : undefined,
         privacyConsent: values.privacyConsent,
       };
-
+      
+       
       const newPatient = await registerPatient(patient);
 
       if (newPatient) {
@@ -104,7 +106,7 @@ const RegisterForm = ({ user }: { user: User }) => {
         className="flex-1 space-y-12"
       >
         <section className="space-y-4">
-          <h1 className="header">Welcome 👋</h1>
+          <h1 className="header">Welcome 🙏🏻</h1>
           <p className="text-dark-700">Let us know more about yourself.</p>
         </section>
 
@@ -131,7 +133,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="email"
               label="Email address"
-              placeholder="johndoe@gmail.com"
+              placeholder="example@gmail.com"
               iconSrc="/assets/icons/email.svg"
               iconAlt="email"
             />
@@ -187,7 +189,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="address"
               label="Address"
-              placeholder="14 street, New york, NY - 5101"
+              placeholder="Salt Lake,2nd Avenue, CG-149"
             />
 
             <CustomFormField
@@ -214,7 +216,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="emergencyContactNumber"
               label="Emergency contact number"
-              placeholder="(555) 123-4567"
+              placeholder="(+91) 123-4567-890"
             />
           </div>
         </section>
@@ -255,7 +257,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="insuranceProvider"
               label="Insurance provider"
-              placeholder="BlueCross BlueShield"
+              placeholder="HDFC ERGO"
             />
 
             <CustomFormField
@@ -263,7 +265,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="insurancePolicyNumber"
               label="Insurance policy number"
-              placeholder="ABC123456789"
+              placeholder="ABC12345XXX"
             />
           </div>
 
@@ -274,7 +276,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="allergies"
               label="Allergies (if any)"
-              placeholder="Peanuts, Penicillin, Pollen"
+              placeholder="Peanuts, Penicillin, Pollen etc.."
             />
 
             <CustomFormField
@@ -282,7 +284,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="currentMedication"
               label="Current medications"
-              placeholder="Ibuprofen 200mg, Levothyroxine 50mcg"
+              placeholder="Dolo 650mg,Sitros 50mg etc.."
             />
           </div>
 
@@ -293,7 +295,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="familyMedicalHistory"
               label=" Family medical history (if relevant)"
-              placeholder="Mother had brain cancer, Father has hypertension"
+              placeholder="Mother had breast cancer, Father has hypertension"
             />
 
             <CustomFormField
@@ -301,7 +303,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               control={form.control}
               name="pastMedicalHistory"
               label="Past medical history"
-              placeholder="Appendectomy in 2015, Asthma diagnosis in childhood"
+              placeholder="Past Chronic pain,Hyper tension etc.."
             />
           </div>
         </section>
@@ -315,7 +317,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.SELECT}
             control={form.control}
             name="identificationType"
-            label="Identification Type"
+            label="Identification Document Type"
             placeholder="Select identification type"
           >
             {IdentificationTypes.map((type, i) => (

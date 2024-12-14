@@ -7,6 +7,7 @@ import {
   DATABASE_ID,
   ENDPOINT,
   PATIENT_COLLECTION_ID,
+  APPOINTMENT_COLLECTION_ID,
   PROJECT_ID,
   databases,
   storage,
@@ -101,6 +102,12 @@ export const getPatient = async (userId: string) => {
       PATIENT_COLLECTION_ID!,
       [Query.equal("userId", [userId])]
     );
+
+    // Check if patients.documents is not empty
+    if (patients.documents.length === 0) {
+      console.error("No patient found for the given userId.");
+      return null; // or handle as needed
+    }
 
     return parseStringify(patients.documents[0]);
   } catch (error) {
